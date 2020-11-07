@@ -5,6 +5,7 @@ Simple Angular + Laravel application for food recepies
 
 
 
+
 RUN Laravel app:
 	php artisan serve
 
