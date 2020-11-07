@@ -54,7 +54,7 @@ Other links:
 				 - frontend - Directory where all Angular files will reside
 				 - assets   - Directory where all images/links/icons/design/etc. will reside
 				 - Procfile - Config file for Heroku app
-
+				 - vhost    - Vhost file - if you want to run the app as: http://retete-ro.local
 
 
 
@@ -154,6 +154,13 @@ Heroku configuration:
 	}
 
 
+
+- Create vhost (in order to access app as: http://retete-ro.local):
+	Check 'vhost.conf' file
+	
+	If getting permission denied error:
+	sudo chmod 777 -R storage/
+	sudo chmod 777 -R bootstrap/cache/
 
 
 
