@@ -95,10 +95,6 @@ ng new frontend --skip-git
 # Steps taken for setting up the project structure:
 
 
-???
-cd app
-npm install enhanced-resolve@3.3.0 --save-dev
-
 
 Install Heroku CLI
 	brew install heroku/brew/heroku
@@ -106,6 +102,12 @@ Install Heroku CLI
 
 Login into Heroku CLI:
 	heroku login
+
+
+Create Heroku Procfile:
+	Filename: Procfile
+	(Tells Heroku what command to use to launch the web server with the correct settings)
+	echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile
 
 
 Install/Make composer globally:
