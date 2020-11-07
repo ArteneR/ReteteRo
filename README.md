@@ -1,4 +1,5 @@
 # ReteteRo
+
 Simple Angular + Laravel application for food recepies
 
 ===========================================================
@@ -26,7 +27,8 @@ Open Angular app:
 ===========================================================
 
 
-Useful links:
+# Useful links:
+
 - https://laravel.com/docs/8.x
 - https://angular.io/docs
 
@@ -43,6 +45,8 @@ Useful links:
 
 ===========================================================
 
+
+# Installation:
 
 API:
 
@@ -88,7 +92,7 @@ ng new frontend --skip-git
 ===========================================================
 
 
-Steps taken for setting up the project structure:
+# Steps taken for setting up the project structure:
 
 
 ???
