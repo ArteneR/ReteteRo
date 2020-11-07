@@ -88,6 +88,13 @@ Other links:
 
 
 
+Heroku configuration:
+(https://devcenter.heroku.com/articles/getting-started-with-laravel)
+
+- Setup Heroku app and link it to the GitHub repo and set the 'main' branch for auto deployment
+
+
+
 - Install Heroku CLI
 	brew install heroku/brew/heroku
 
@@ -117,7 +124,34 @@ Other links:
 
 
 
+- Change the log destination for production:
+	In config/logging.php:
 
+	return [
+		'default' => env('LOG_CHANNEL', 'stack'),
+		'channels' => [
+			'stack' => [
+				'driver' => 'stack',
+				'channels' => ['single'],
+			],
+			'single' => [
+				'driver' => 'errorlog',
+				'level' => 'debug',
+			],
+		...
+
+
+- Trusting the Load Balancer:
+	In App\Http\Middleware\TrustProxies.php:
+
+	namespace App\Http\Middleware;
+	use Illuminate\Http\Request;
+	use Fideloper\Proxy\TrustProxies as Middleware;
+	class TrustProxies extends Middleware
+	{
+		protected $proxies = '*';
+		protected $headers = Request:: HEADER_X_FORWARDED_AWS_ELB;
+	}
 
 
 
