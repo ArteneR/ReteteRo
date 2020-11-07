@@ -29,9 +29,12 @@ Open Angular app:
 
 # Useful links:
 
-- https://laravel.com/docs/8.x
-- https://angular.io/docs
+- Heroku app page: https://dashboard.heroku.com/apps/retete-ro
 
+- Laravel Docs: https://laravel.com/docs/8.x
+- Angular Docs: https://angular.io/docs
+
+Other links:
 - https://appdividend.com/2017/09/22/laravel-5-5-angular-4-tutorial-example-scratch/
 - https://scotch.io/tutorials/create-a-laravel-and-angular-single-page-comment-application
 - https://medium.com/@juancarlosjc/angular-inside-laravel-b155736ea84b
@@ -45,75 +48,74 @@ Open Angular app:
 
 ===========================================================
 
+# Folders structure:
 
-# Installation:
-
-API:
-
-
-- Install Laravel app:
-
-php composer.phar create-project laravel/laravel --prefer-dist api
-	(api - name of the project/folder where laravel app will be installed)
-
-
-
-
+- Root Directory - All Laravel files will reside here
+				 - frontend - Directory where all Angular files will reside
+				 - assets   - Directory where all images/links/icons/design/etc. will reside
+				 - Procfile - Config file for Heroku app
 
 
 
 
 ===========================================================
 
+# Installation + steps for configuring project:
 
-APP:
+
+- Install/Make composer globally:
+	sudo chmod 755 composer.phar
+	sudo cp composer.phar /usr/local/bin/composer
+	composer -v
+
+
+
+- Install Laravel app:
+	composer create-project laravel/laravel --prefer-dist ReteteRo
+	('ReteteRo' - name of the project/folder where laravel app will be installed)
+
 
 
 - Install Angular CLI globally
-
-npm install -g @angular/cli
-
+	npm install -g @angular/cli
 
 
 
 - Install Angular app:
-
-ng new frontend --skip-git
-	(app - name of the project/folder where angular app will be installed)
+	ng new frontend --skip-git
+	('frontend' - name of the project/folder where angular app will be installed)
 	(--skip-git - in order to omit creating .git file)
 
 
 
-
-
-
-
-
-===========================================================
-
-
-# Steps taken for setting up the project structure:
-
-
-
-Install Heroku CLI
+- Install Heroku CLI
 	brew install heroku/brew/heroku
 
 
-Login into Heroku CLI:
+
+- Login into Heroku CLI:
 	heroku login
 
 
-Create Heroku Procfile:
+
+- Create Heroku Procfile:
 	Filename: Procfile
 	(Tells Heroku what command to use to launch the web server with the correct settings)
 	echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile
 
 
-Install/Make composer globally:
-	sudo chmod 755 composer.phar
-	sudo cp composer.phar /usr/local/bin/composer
-	composer -v
+
+- Display Laravel Key:
+	php artisan key:generate --show
+	(Copy the displayed key)
+
+
+
+- Set Laravel Key into Heroku app config:
+	heroku config:set APP_KEY=<YOUR_API_KEY_HERE> -a retete-ro
+	(retete-ro - name of the Heroku app)
+
+
 
 
 
